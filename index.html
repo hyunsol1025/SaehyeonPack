@@ -16,7 +16,6 @@
 				}
 			};
 
-			//// MAP에 따라 페이지 이동
 			const url = location.href+"";
 			const command = url.split("?")[1].split("=")[0];
 			const option = url.split("?")[1].split("=")[1];
@@ -44,7 +43,7 @@
 
 				const resultURL = "https://docs.google.com/uc?id="+gd_id+"&export=download";
 
-				document.write("<h3>ㄱㄷ 다운로드 중</h3><br>안되면 <a href='"+resultURL+"' type='download'>여기 클릭</a>");
+				document.write("<h3>ㄱㄷ 다운로드 중</h3><br>10초 이상 기다려도 안되면 <a href='"+resultURL+"' type='download'>여기 클릭</a>");
 				window.location = resultURL;
 			} else {
 				document.write("<h3>..?</h3>");
