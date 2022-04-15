@@ -5,7 +5,7 @@
 
 		wow();
 
-		function wow() {
+		function wow(command, option) {
 
 			//// 구글 드라이브 공유 아이디 배열
 			const googleDriveID = {
@@ -21,8 +21,14 @@
 				document.write("<h2>헿</h2>");
 				return false;	
 			}
-			const command = url.split("/?")[1].split("=")[0];
-			const option = url.split("/?")[1].split("=")[1];
+			
+			if(command === undefined) {
+				command = url.split("/?")[1].split("=")[0];
+			}
+			
+			else if(option === undefined) {
+				option = url.split("/?")[1].split("=")[1];
+			}
 			
 			alert("para: "+url.split("/?")[1]+", command: "+command+", option: "+option);
 
