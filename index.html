@@ -35,8 +35,12 @@
 			alert("command: "+command+", option: "+option);
 			
 			if(command === "pack") {
-				const resultURL = makeURL( makeID(option) );
-
+				const gd_id = makeID(option);
+				
+				if(!gd_id) return;
+				
+				const resultURL = makeURL(gd_id);
+					
 				document.write("<h3>ㄱㄷ 다운로드 중</h3><br>10초 이상 기다려도 안되면 <a href='"+resultURL+"' type='download'>여기 클릭</a>");
 				window.location = resultURL;
 				
@@ -50,17 +54,14 @@
 		function makeID(name) {
 			switch(name) {
 				case "rebert_aooni":
-					gd_id = googleDriveID.pack.rebert_aooni;
-					break;
+					return googleDriveID.pack.rebert_aooni;
 				case "rebert_police_and_criminal":
-					gd_id = googleDriveID.pack.rebert_police_and_criminal;
-					break;
+					return googleDriveID.pack.rebert_police_and_criminal;
 				case "republic_of_rebert":
-					gd_id = googleDriveID.pack.republic_of_rebert;
-					break;
+					return googleDriveID.pack.republic_of_rebert;
 				default:
 					document.write("<h3>우와 뭔가 잘못된 것 같아요!</h3>");
-					return;
+					return false;
 			}
 		}
 		
