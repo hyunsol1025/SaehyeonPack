@@ -17,8 +17,10 @@
 			};
 
 			const url = location.href+"";
+			
 			if(!url.includes("?")) {
 				document.write("<h2>헿</h2>");
+				
 				return false;	
 			}
 			
@@ -29,37 +31,39 @@
 			else if(option === undefined) {
 				option = url.split("/?")[1].split("=")[1];
 			}
-			
-			alert("para: "+url.split("/?")[1]+", command: "+command+", option: "+option);
 
 			if(command === "pack") {
-
-				var gd_id = ""; // 구글 드라이브 공유 아이디
-
-				switch(option) {
-					case "rebert_aooni":
-						gd_id = googleDriveID.pack.rebert_aooni;
-						break;
-					case "rebert_police_and_criminal":
-						gd_id = googleDriveID.pack.rebert_police_and_criminal;
-						break;
-					case "republic_of_rebert":
-						gd_id = googleDriveID.pack.republic_of_rebert;
-						break;
-					default:
-						document.write("<h3>우와 뭔가 잘못된 것 같아요!</h3>");
-						return;
-				}
-
-				const resultURL = "https://docs.google.com/uc?id="+gd_id+"&export=download";
+				const resultURL = makeURL( makeID(option) );
 
 				document.write("<h3>ㄱㄷ 다운로드 중</h3><br>10초 이상 기다려도 안되면 <a href='"+resultURL+"' type='download'>여기 클릭</a>");
 				window.location = resultURL;
+				
 			} else {
 				document.write("<h3>..?</h3>");
 			}
-
-
+			
+		
+		}
+		
+		function makeID(name) {
+			switch(option) {
+				case "rebert_aooni":
+					gd_id = googleDriveID.pack.rebert_aooni;
+					break;
+				case "rebert_police_and_criminal":
+					gd_id = googleDriveID.pack.rebert_police_and_criminal;
+					break;
+				case "republic_of_rebert":
+					gd_id = googleDriveID.pack.republic_of_rebert;
+					break;
+				default:
+					document.write("<h3>우와 뭔가 잘못된 것 같아요!</h3>");
+					return;
+			}
+		}
+		
+		function makeURL(id) {
+			return "https://docs.google.com/uc?id="+id+"&export=download";
 		}
 	</script>
 
