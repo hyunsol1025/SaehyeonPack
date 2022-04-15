@@ -21,8 +21,8 @@
 				document.write("<h2>헿</h2>");
 				return false;	
 			}
-			const command = url.split("/")[1].split("?name=")[0];
-			const option = url.split("/")[1].split("?name=")[1];
+			const command = url.split("/?")[1].split("?pack=")[0];
+			const option = url.split("/?")[1].split("?pack=")[1];
 			
 			alert("command: "+command+", "+option);
 
