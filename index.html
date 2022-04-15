@@ -31,7 +31,9 @@
 			if(option === undefined) {
 				option = url.split("/?")[1].split("=")[1];
 			}
-
+			
+			alert("command: "+command+", option: "+option);
+			
 			if(command === "pack") {
 				const resultURL = makeURL( makeID(option) );
 
