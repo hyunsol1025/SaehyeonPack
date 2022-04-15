@@ -40,7 +40,9 @@
 				if(!gd_id) return;
 				
 				const resultURL = makeURL(gd_id);
-					
+				
+				alert("gd_id: "+gd_id+", resultURL: "+resultURL);
+				
 				document.write("<h3>ㄱㄷ 다운로드 중</h3><br>10초 이상 기다려도 안되면 <a href='"+resultURL+"' type='download'>여기 클릭</a>");
 				window.location = resultURL;
 				
